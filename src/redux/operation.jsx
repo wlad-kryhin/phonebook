@@ -1,7 +1,6 @@
 import * as action from "./action";
 import axios from "axios";
 // import { createAsyncThunk } from "@reduxjs/toolkit";
-axios.defaults.baseURL = "http://localhost:3000";
 
 // const fetchItems = createAsyncThunk(
 //   "contacts",
@@ -43,20 +42,14 @@ axios.defaults.baseURL = "http://localhost:3000";
 //   },
 // );
 
-const addContacts =
-  ({ name, tel }) =>
-  (dispatch) => {
-    const item = {
-      name,
-      tel,
-    };
-    dispatch(action.addItemsRequest());
+const addContacts = (item) => (dispatch) => {
+  dispatch(action.addItemsRequest());
 
-    axios
-      .post("/contacts", item)
-      .then(({ data }) => dispatch(action.addItemsSuccess(data)))
-      .catch((error) => dispatch(action.addItemsError(error)));
-  };
+  axios
+    .post("/contacts", item)
+    .then(({ data }) => dispatch(action.addItemsSuccess(data)))
+    .catch((error) => dispatch(action.addItemsError(error)));
+};
 const deleteContact = (id) => (dispatch) => {
   dispatch(action.deleteItemsRequest());
   axios
