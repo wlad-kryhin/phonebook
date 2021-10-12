@@ -3,8 +3,8 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../auth/auth-operations";
 export default function Login() {
   const dispatch = useDispatch();
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const handleInputChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -20,18 +20,19 @@ export default function Login() {
   const handleFormSubmit = (e) => {
     e.preventDefault();
     dispatch(logIn({ email, password }));
-    setEmail(null);
-    setPassword(null);
+    e.target.reset();
+    setEmail("");
+    setPassword("");
   };
   return (
     <form onSubmit={handleFormSubmit}>
       <label>
         Email
-        <input onChange={handleInputChange} name="email" type="text" />
+        <input onChange={handleInputChange} name="email" type="email" />
       </label>
       <label>
         Password
-        <input onChange={handleInputChange} name="password" type="text" />
+        <input onChange={handleInputChange} name="password" type="password" />
       </label>
       <button type="submit">Log in</button>
     </form>

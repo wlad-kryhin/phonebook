@@ -3,10 +3,10 @@ import { useDispatch } from "react-redux";
 import { register } from "../auth/auth-operations";
 export default function Registration() {
   const dispatch = useDispatch();
-  const [name, setName] = useState(null);
-  const [email, setEmail] = useState(null);
-  const [password, setPassword] = useState(null);
-  const [repPassword, setRepPassword] = useState(null);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [repPassword, setRepPassword] = useState("");
 
   const handleInputChange = ({ target: { name, value } }) => {
     switch (name) {
@@ -29,10 +29,11 @@ export default function Registration() {
       return alert("Пароль не совпадает");
     }
     dispatch(register({ name, email, password }));
-    setName(null);
-    setEmail(null);
-    setPassword(null);
-    setRepPassword(null);
+    e.target.reset();
+    setName("");
+    setEmail("");
+    setPassword("");
+    setRepPassword("");
   };
   return (
     <form onSubmit={handleFormSubmit}>
@@ -42,15 +43,19 @@ export default function Registration() {
       </label>
       <label>
         Email
-        <input onChange={handleInputChange} type="text" name="email" />
+        <input onChange={handleInputChange} type="email" name="email" />
       </label>
       <label>
         Password
-        <input onChange={handleInputChange} type="text" name="password" />
+        <input onChange={handleInputChange} type="password" name="password" />
       </label>
       <label>
         Repeat password
-        <input onChange={handleInputChange} type="text" name="repPassword" />
+        <input
+          onChange={handleInputChange}
+          type="password"
+          name="repPassword"
+        />
       </label>
       <button type="submit">Registration</button>
     </form>

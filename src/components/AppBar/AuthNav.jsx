@@ -4,12 +4,14 @@ export default function Navigation() {
     <nav>
       <ul className="nav__list">
         <li className="nav__item">
-          Registration
-          {/* <NavLink to="/registration">Registration</NavLink> */}
+          <NavLink to="/registration" exact>
+            Registration
+          </NavLink>
         </li>
         <li>
-          Log in
-          {/* <NavLink to="/login">Log in</NavLink> */}
+          <NavLink to="/login" exact>
+            Log in
+          </NavLink>
         </li>
       </ul>
     </nav>
