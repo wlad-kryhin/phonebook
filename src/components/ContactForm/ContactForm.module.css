@@ -16,9 +16,8 @@
   height: 30px;
   padding: 4px;
   border-radius: 5px;
-  border-color: transparent;
+  border-color: rgba(161, 95, 91, 0.3);
   outline: none;
-  border-bottom: 1px solid rgba(50, 3, 0, 0.5);
   background-color: transparent;
 }
 .button {

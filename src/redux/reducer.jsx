@@ -9,9 +9,9 @@ const items = createReducer([], {
         (contact) => contact.name.toLowerCase() === payload.name.toLowerCase(),
       )
     ) {
-      alert(`${payload.name} is already in contacts.`);
-    } else if (state.find((contact) => contact.tel === payload.tel)) {
-      alert(`${payload.tel} is already in contacts.`);
+      return alert(`This name is already in contacts.`);
+    } else if (state.find((contact) => contact.number === payload.number)) {
+      return alert(`This phone number is already in contacts.`);
     } else {
       return [...state, payload];
     }

@@ -8,7 +8,6 @@ export default function Contacts() {
   return (
     <div className="container">
       <ContactForm />
-      <h2>Contacts</h2>
       {items.length > 1 && <Filter />}
       <PhoneList />
     </div>

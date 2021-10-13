@@ -7,22 +7,23 @@ import { useDispatch } from "react-redux";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
-  const [tel, setTel] = useState("");
+  const [number, setNumber] = useState("");
   const dispatch = useDispatch();
 
   const handleInputNameChange = (event) => {
     setName(event.currentTarget.value);
   };
   const handleInputTelChange = (event) => {
-    setTel(event.currentTarget.value);
+    setNumber(event.currentTarget.value);
   };
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    dispatch(addContacts({ name, tel }));
+
+    dispatch(addContacts({ name, number }));
     // event.target.reset();
     setName("");
-    setTel("");
+    setNumber("");
   };
 
   return (
@@ -41,14 +42,14 @@ export default function ContactForm() {
         />
       </label>
       <label className={s.label}>
-        Tel
+        Phone number
         <input
-          type="tel"
-          name="tel"
+          type="text"
+          name="number"
           className={s.input}
           placeholder="774-333-22"
           onChange={handleInputTelChange}
-          value={tel}
+          value={number}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           required
         />

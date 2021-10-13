@@ -5,20 +5,32 @@ import { deleteContact, fetchItems } from "../../redux/operation";
 import { useDispatch, useSelector } from "react-redux";
 import { getList } from "../../redux/selectors";
 import { useEffect } from "react";
+import { ImPhone, ImUser } from "react-icons/im";
+
 export default function PhoneList() {
   const dispatch = useDispatch();
   const list = useSelector(getList);
   const onDelete = (id) => dispatch(deleteContact(id));
+
   useEffect(() => {
-    dispatch(fetchItems());
+    setTimeout(() => {
+      dispatch(fetchItems());
+    }, 100);
   }, [dispatch]);
+
   return (
     <ul className={s.list}>
-      {list.map(({ id, name, tel }) => {
+      {list.map(({ id, name, number }) => {
         return (
-          <li key={id}>
-            <p className={s.text}>{name}</p>
-            <p className={s.number}>{tel}</p>
+          <li key={id} className={s.list__item}>
+            <p className={s.text}>
+              <ImUser />
+              {name}
+            </p>
+            <p className={s.number}>
+              <ImPhone color="blue" />
+              {number}
+            </p>
             <button
               className={s.button}
               type="button"

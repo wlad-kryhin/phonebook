@@ -13,6 +13,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+a {
+  text-decoration: none;
+  color: blue;
+  font-size: 20px;
+}
 p,
 h1,
 h2,
@@ -27,8 +32,18 @@ ul {
 * {
   box-sizing: border-box;
 }
+.nav_link {
+  color: rgb(44, 81, 148);
+}
+.nav_link-active {
+  color: coral;
+}
+.container__app {
+  padding: 0 30px;
+  margin: 0 auto;
+  max-width: 1300px;
+}
 .header {
-  color: red;
   padding: 20px 0;
   display: flex;
   align-items: center;
@@ -43,15 +58,77 @@ ul {
   margin-right: 20px;
 }
 .container {
+  width: 100%;
   display: flex;
   padding: 20px;
+  align-items: center;
+  justify-content: space-around;
+}
+/******* HOME *******/
+.home__desc {
+  text-align: center;
+  padding: 100px;
+  font-size: 30px;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  width: 30%;
-  margin: 100px auto;
-  height: 80%;
+  justify-content: flex-start;
+  width: 600px;
+  margin-left: 300px;
+}
+.home__app {
+  margin-left: 7px;
+}
+.user__name {
+  margin-right: 10px;
+}
+.user__nameOK {
+  color: orangered;
+  margin-right: 10px;
+}
+.home-link {
+  margin: 0 5px;
+}
 
-  border: 1px solid palegoldenrod;
-  border-radius: 20px;
+/******** FORM *****************/
+.form {
+  padding-top: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+.label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+  color: black;
+}
+.input {
+  margin-top: 5px;
+  background-color: transparent;
+  border: 1px solid olive;
+  border-radius: 5px;
+  padding: 5px;
+}
+.input::placeholder {
+  color: gray;
+}
+.button {
+  border-radius: 10px;
+  background-color: palegoldenrod;
+  padding: 5px 10px;
+  border-color: transparent;
+}
+.button:hover,
+.button:focus {
+  background-color: coral;
+}
+/********* USER MENU ********/
+.user__menu {
+  display: flex;
+  justify-content: space-between;
+}
+.welcome {
+  margin-left: 10px;
 }

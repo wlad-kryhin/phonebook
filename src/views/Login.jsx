@@ -25,16 +25,30 @@ export default function Login() {
     setPassword("");
   };
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label>
+    <form onSubmit={handleFormSubmit} className="form">
+      <label className="label">
         Email
-        <input onChange={handleInputChange} name="email" type="email" />
+        <input
+          className="input"
+          onChange={handleInputChange}
+          name="email"
+          type="email"
+          placeholder="name@gmail.com"
+        />
       </label>
-      <label>
+      <label className="label">
         Password
-        <input onChange={handleInputChange} name="password" type="password" />
+        <input
+          className="input"
+          onChange={handleInputChange}
+          name="password"
+          type="password"
+          placeholder="********"
+        />
       </label>
-      <button type="submit">Log in</button>
+      <button type="submit" className="button">
+        Log in
+      </button>
     </form>
   );
 }

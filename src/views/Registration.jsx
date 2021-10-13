@@ -36,28 +36,50 @@ export default function Registration() {
     setRepPassword("");
   };
   return (
-    <form onSubmit={handleFormSubmit}>
-      <label>
+    <form onSubmit={handleFormSubmit} className="form">
+      <label className="label">
         Name
-        <input onChange={handleInputChange} type="text" name="name" />
+        <input
+          className="input"
+          onChange={handleInputChange}
+          type="text"
+          name="name"
+          placeholder="Anthony"
+        />
       </label>
-      <label>
+      <label className="label">
         Email
-        <input onChange={handleInputChange} type="email" name="email" />
+        <input
+          className="input"
+          onChange={handleInputChange}
+          type="email"
+          name="email"
+          placeholder="name@gmail.com"
+        />
       </label>
-      <label>
+      <label className="label">
         Password
-        <input onChange={handleInputChange} type="password" name="password" />
+        <input
+          className="input"
+          onChange={handleInputChange}
+          type="password"
+          name="password"
+          placeholder="********"
+        />
       </label>
-      <label>
+      <label className="label">
         Repeat password
         <input
+          className="input"
           onChange={handleInputChange}
           type="password"
           name="repPassword"
+          placeholder="********"
         />
       </label>
-      <button type="submit">Registration</button>
+      <button type="submit" className="button">
+        Register
+      </button>
     </form>
   );
 }
