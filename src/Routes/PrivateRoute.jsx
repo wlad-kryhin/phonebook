@@ -5,8 +5,6 @@ import { getIsLoggedIn } from "../auth/auth-selectors";
 export default function PrivateRoute({ children, ...routeProps }) {
   const isLoggedIn = useSelector(getIsLoggedIn);
   return (
-    <Route {...routeProps}>
-      {isLoggedIn ? children : <Redirect to="/phonebook" />}
-    </Route>
+    <Route {...routeProps}>{isLoggedIn ? children : <Redirect to="/" />}</Route>
   );
 }

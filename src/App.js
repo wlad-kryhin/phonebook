@@ -32,7 +32,7 @@ function App() {
             />
           }
         >
-          <PublicRoute path="/phonebook">
+          <PublicRoute path="/">
             <Home />
           </PublicRoute>
           <PrivateRoute path="/contacts" exact>
