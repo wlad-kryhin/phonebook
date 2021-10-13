@@ -45,16 +45,19 @@ export default function Registration() {
           type="text"
           name="name"
           placeholder="Anthony"
+          required
         />
       </label>
       <label className="label">
         Email
         <input
+          // pattern="/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/"
           className="input"
           onChange={handleInputChange}
           type="email"
           name="email"
           placeholder="name@gmail.com"
+          required
         />
       </label>
       <label className="label">
@@ -65,16 +68,20 @@ export default function Registration() {
           type="password"
           name="password"
           placeholder="********"
+          // pattern="/^[A-Z0-9_-]{8,12}$/"
+          required
         />
       </label>
       <label className="label">
         Repeat password
         <input
+          // pattern="/^[A-Z0-9_-]{8,12}$/"
           className="input"
           onChange={handleInputChange}
           type="password"
           name="repPassword"
           placeholder="********"
+          required
         />
       </label>
       <button type="submit" className="button">

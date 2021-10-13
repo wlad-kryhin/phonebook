@@ -34,6 +34,7 @@ export default function Login() {
           name="email"
           type="email"
           placeholder="name@gmail.com"
+          required
         />
       </label>
       <label className="label">
@@ -44,6 +45,7 @@ export default function Login() {
           name="password"
           type="password"
           placeholder="********"
+          required
         />
       </label>
       <button type="submit" className="button">

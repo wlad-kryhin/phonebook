@@ -8,7 +8,7 @@ export default function Navigation() {
       <ul className="nav__list">
         <li className="nav__item">
           <NavLink
-            to="/"
+            to="/phonebook"
             exact
             className="nav_link"
             activeClassName="nav_link-active"

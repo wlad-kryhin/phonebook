@@ -31,13 +31,15 @@ export default function PhoneList() {
               <ImPhone color="blue" />
               {number}
             </p>
-            <button
-              className={s.button}
-              type="button"
-              onClick={() => onDelete(id)}
-            >
-              Delete
-            </button>
+            <div>
+              <button
+                className={s.button}
+                type="button"
+                onClick={() => onDelete(id)}
+              >
+                Delete
+              </button>
+            </div>
           </li>
         );
       })}
