@@ -4,7 +4,7 @@
   width: 100%;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
+  align-items: baseline;
   margin-bottom: 30px;
 }
 .label {
