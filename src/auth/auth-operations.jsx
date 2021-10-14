@@ -53,7 +53,7 @@ const currentUser = createAsyncThunk("auth/refresh", async (_, thunkAPI) => {
     console.log(data);
     return data;
   } catch (error) {
-    return alert(error.message);
+    return error.message;
   }
 });
 export { register, logIn, logOut, currentUser };
