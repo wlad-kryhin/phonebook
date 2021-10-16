@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { logIn } from "../auth/auth-operations";
+import { Link } from "react-router-dom";
 export default function Login() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -26,6 +27,7 @@ export default function Login() {
   };
   return (
     <form onSubmit={handleFormSubmit} className="form">
+      <h3 className="form-title">Login form</h3>
       <label className="label">
         Email
         <input
@@ -51,6 +53,12 @@ export default function Login() {
       <button type="submit" className="button">
         Log in
       </button>
+      <p className="form-desc">
+        If you don't have an account , please{" "}
+        <Link className="link-registration" to="/registration">
+          register
+        </Link>
+      </p>
     </form>
   );
 }

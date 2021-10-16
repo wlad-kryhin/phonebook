@@ -1,23 +1,33 @@
 import { combineReducers } from "redux";
 import { createReducer } from "@reduxjs/toolkit";
 import * as actions from "./action";
+import { toast } from "react-toastify";
 const items = createReducer([], {
   [actions.fetchItemsSuccess]: (_, { payload }) => payload,
   [actions.addItemsSuccess]: (state, { payload }) => {
-    if (
-      state.find(
-        (contact) => contact.name.toLowerCase() === payload.name.toLowerCase(),
-      )
-    ) {
-      return alert(`This name is already in contacts.`);
-    } else if (state.find((contact) => contact.number === payload.number)) {
-      return alert(`This phone number is already in contacts.`);
-    } else {
-      return [...state, payload];
-    }
+    toast.success("Сontact was added", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    return [...state, payload];
   },
-  [actions.deleteItemsSuccess]: (state, { payload }) =>
-    state.filter((item) => item.id !== payload),
+  [actions.deleteItemsSuccess]: (state, { payload }) => {
+    toast.success("Сontact was deleted", {
+      position: "top-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+    return state.filter((item) => item.id !== payload);
+  },
 });
 
 const filter = createReducer("", {

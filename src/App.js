@@ -7,6 +7,8 @@ import PrivateRoute from "./Routes/PrivateRoute";
 import PublicRoute from "./Routes/PublicRoute";
 import Loader from "react-loader-spinner";
 import { Suspense, lazy, useEffect } from "react";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = lazy(() => import("./views/Home"));
 const Contacts = lazy(() => import("./views/Contacts"));
@@ -20,6 +22,17 @@ function App() {
   }, [dispatch]);
   return (
     <div className="container__app">
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <AppBar />
       <Switch>
         <Suspense

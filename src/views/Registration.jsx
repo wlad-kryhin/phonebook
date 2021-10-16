@@ -37,6 +37,7 @@ export default function Registration() {
   };
   return (
     <form onSubmit={handleFormSubmit} className="form">
+      <h3 className="form-title">Registration form</h3>
       <label className="label">
         Name
         <input

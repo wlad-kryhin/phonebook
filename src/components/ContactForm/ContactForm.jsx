@@ -3,12 +3,14 @@ import { useState } from "react";
 import s from "./ContactForm.module.css";
 // import * as action from "../../redux/action";
 import { addContacts } from "../../redux/operation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function ContactForm() {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const dispatch = useDispatch();
+  const state = useSelector((state) => state.contacts.items);
+  console.log(state);
 
   const handleInputNameChange = (event) => {
     setName(event.currentTarget.value);
@@ -19,12 +21,26 @@ export default function ContactForm() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-
-    dispatch(addContacts({ name, number }));
-    // event.target.reset();
-    setName("");
-    setNumber("");
+    if (
+      state.find((contact) => contact.name.toLowerCase() === name.toLowerCase())
+    ) {
+      alert(`This name is already in contacts.`);
+      setName("");
+    } else if (state.find((contact) => contact.number === number)) {
+      alert(`This phone number is already in contacts.`);
+      setNumber("");
+    } else {
+      dispatch(addContacts({ name, number }));
+      setName("");
+      setNumber("");
+    }
   };
+
+  //   dispatch(addContacts({ name, number }));
+  //   // event.target.reset();
+  //   setName("");
+  //   setNumber("");
+  // };
 
   return (
     <form onSubmit={handleFormSubmit} className={s.form}>
